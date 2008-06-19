@@ -1,15 +1,5 @@
-
 from logging import getLogger
 log = getLogger('cs.pfg.dnivalidator')
-
-
-try:
-    from Products.PloneFormGen.tools import formGenTool
-    formGenTool._oldStringValidatorsDL = formGenTool.getStringValidatorsDL
-    formGenTool.getStringValidatorsDL = ourStringValidatorsDL
-
-except ImportError:
-    log.info('Import error: Products.PloneFormGen is not installed, nothing to patch')
 
 
 def ourStringValidatorsDL(self):
@@ -30,3 +20,12 @@ def ourStringValidatorsDL(self):
     self.stringValidatorsDL.add('dni', u'Is a valid DNI', 'Is a valid DNI')
     return self.stringValidatorsDL
     
+
+try:
+    from Products.PloneFormGen.tools import formGenTool
+    formGenTool.FormGenTool._oldStringValidatorsDL = formGenTool.FormGenTool.getStringValidatorsDL
+    formGenTool.FormGenTool.getStringValidatorsDL = ourStringValidatorsDL
+
+except ImportError:
+    log.info('Import error: Products.PloneFormGen is not installed, nothing to patch')
+

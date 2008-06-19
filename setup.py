@@ -26,6 +26,7 @@ setup(name='cs.pfg.dnivalidator',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+          'zope.deprecation',
       ],
       entry_points="""
       # -*- Entry points: -*-
