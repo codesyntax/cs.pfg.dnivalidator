@@ -14,12 +14,15 @@ class Dni:
     name = 'Dni'
 
     def __init__(self, name, title='', description=''):
+        import pdb;pdb.set_trace()
+        
         self.name = name
         self.title = title or name
         self.description = description
 
     def __call__(self, value, *args, **kwargs):
-
+        import pdb;pdb.set_trace()
+        
         let = value[-1:].upper()
 	number = value[:-1]
 	number = int(number)
