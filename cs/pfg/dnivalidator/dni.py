@@ -19,6 +19,8 @@ class Dni:
         self.description = description
 
     def __call__(self, value, *args, **kwargs):
+        if value[0] not in ['0','1','2','3','4','5','6','7','8','9']:
+            value=value[1:]
         let = value[-1:].upper()
 	number = value[:-1]
 	number = int(number)
