@@ -1,4 +1,6 @@
-from Products.validation import validation, interfaces
+from zope.interface import implements
+from Products.validation.interfaces.IValidator import IValidator
+from Products.validation import validation
 
 class Dni:
     """ Validates a String field to contain a Spanish ID card number
@@ -8,8 +10,7 @@ class Dni:
       http://es.wikibooks.org/wiki/Algoritmo_para_obtener_la_letra_del_NIF
 
     """
-
-    __implements__ = (interfaces.ivalidator,)
+    implements(IValidator)
 
     name = 'Dni'
 
