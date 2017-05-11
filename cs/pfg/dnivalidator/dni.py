@@ -19,7 +19,7 @@ class Dni:
         self.title = title or name
         self.description = description
 
-    def __call__(self, value, *args, **kwargs):
+    def __call__(self, dni, *args, **kwargs):
         tabla = "TRWAGMYFPDXBNJZSQVHLCKE"
         dig_ext = "XYZ"
         reemp_dig_ext = {'X': '0', 'Y': '1', 'Z': '2'}
