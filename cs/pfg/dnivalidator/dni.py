@@ -20,7 +20,8 @@ class Dni:
         self.description = description
 
     def __call__(self, dni, *args, **kwargs):
-        lang = self.REQUEST.LANGUAGE
+        from zope.globalrequest import getRequest
+        lang = getRequest().LANGUAGE
         tabla = "TRWAGMYFPDXBNJZSQVHLCKE"
         dig_ext = "XYZ"
         reemp_dig_ext = {'X': '0', 'Y': '1', 'Z': '2'}
