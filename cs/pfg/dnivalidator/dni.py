@@ -20,6 +20,7 @@ class Dni:
         self.description = description
 
     def __call__(self, dni, *args, **kwargs):
+        lang = self.request.LANGUAGE
         tabla = "TRWAGMYFPDXBNJZSQVHLCKE"
         dig_ext = "XYZ"
         reemp_dig_ext = {'X': '0', 'Y': '1', 'Z': '2'}
@@ -32,6 +33,10 @@ class Dni:
                 dni = dni.replace(dni[0], reemp_dig_ext[dni[0]])
             if len(dni) == len([n for n in dni if n in numeros]) and tabla[int(dni) % 23] == dig_control:
                 return 1
+        if lang == "eu":
+            return ("NAN zenbakia ez duzu zuzen idatzi")
+        elif lang == "es":
+            return ("El DNI introducido no es correcto")
         return ("Validation failed(%s): must be checked." % self.name)
 
     # def __call__(self, value, *args, **kwargs):
