@@ -20,7 +20,7 @@ class Dni:
         self.description = description
 
     def __call__(self, dni, *args, **kwargs):
-        lang = self.request.LANGUAGE
+        lang = self.REQUEST.LANGUAGE
         tabla = "TRWAGMYFPDXBNJZSQVHLCKE"
         dig_ext = "XYZ"
         reemp_dig_ext = {'X': '0', 'Y': '1', 'Z': '2'}
